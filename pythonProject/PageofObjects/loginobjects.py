@@ -18,7 +18,7 @@ usert = "abdulnovone"
 passwordt = "P@$$W0rd"
 # Login username & Password
 expectedURL = "https://dev.d26zcxki5b6f7x.amplifyapp.com"
-s = Service("C://Users//home//Desktop//pythonProject//Airdriven//chromedriver.exe")
+s = Service("C://Users//AkhilaReddy//Desktop//Akhila documents//Automation//chromedriver.exe")
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pytest
@@ -26,30 +26,31 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.service import Service
 class Testloginpage:
-def test_validuser():
-     driver = webdriver.Chrome(service=s)
-     driver.maximize_window()
-     driver.get(Testurl)
-     driver.find_element(By.XPATH, (usernamex)).send_keys(usert)
-     driver.find_element(By.XPATH, (passwordx)).send_keys(passwordt)
-     driver.find_element(By.XPATH, (loginbutx)).click()
-     ActualURL = driver.current_url
-     if expectedURL == ActualURL:
-         print("Fail")
-     else:
-        print("pass")
+     def test_validuser(self):
+         driver = webdriver.Chrome(service=s)
+         driver.maximize_window()
+         driver.get(Testurl)
+         driver.find_element(By.XPATH, (usernamex)).send_keys(usert)
+         driver.find_element(By.XPATH, (passwordx)).send_keys(passwordt)
+         driver.find_element(By.XPATH, (loginbutx)).click()
+         ActualURL = driver.current_url
+         if expectedURL == ActualURL:
+          print("Fail")
+         else:
+          print("pass")
+         driver.close()
 
 
- def test_invalid_user():
-     driver = webdriver.Chrome(service=s)
-     driver.maximize_window()
-     driver.get(Testurl)
-     driver.find_element(By.XPATH, (usernamex)).send_keys(WusernameT)
-     driver.find_element(By.XPATH, (passwordx)).send_keys(WpasswordT)
-     driver.find_element(By.XPATH, (loginbutx)).click()
-     ActualURL = driver.current_url
-     if expectedURL == ActualURL:
-         print("Fail")
-     else:
-         print("pass")
-
+     def test_invalid_user(self):
+         driver = webdriver.Chrome(service=s)
+         driver.maximize_window()
+         driver.get(Testurl)
+         driver.find_element(By.XPATH, (usernamex)).send_keys(WusernameT)
+         driver.find_element(By.XPATH, (passwordx)).send_keys(WpasswordT)
+         driver.find_element(By.XPATH, (loginbutx)).click()
+         ActualURL = driver.current_url
+         if expectedURL == ActualURL:
+            print("Fail")
+         else:
+            print("pass")
+         driver.close()
